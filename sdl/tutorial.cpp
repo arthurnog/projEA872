@@ -46,18 +46,30 @@ Model::Model() {
     dt=0.1;
     x_atual=x0;
     v_atual=v0;
-    }
+}
+
 void Model::set_posicao(float new_data) { x_atual = new_data; }
+
 void Model::set_velocidade(float new_data2) { v_atual = new_data2; }
+
 float Model::get_posicao() { return x_atual; }
+
 float Model::get_velocidade() { return v_atual; }
+
 void Model::set_forca(float new_data3) { f = new_data3; }
+
 float Model::get_forca() { return f; }
+
 float Model::get_k() { return k; }
+
 float Model::get_m() { return m; }
+
 float Model::get_b() { return b; }
+
 float Model::get_dt() { return dt; }
+
 float Model::get_a() { return a; }
+
 void Model::set_a(float new_data4){a=new_data4;}
 
 class View
@@ -131,27 +143,14 @@ View::~View(){
 
 void View::render() {
   target.x = model.get_posicao();
+  // Desenhar a cena
+  SDL_RenderClear(renderer);
+  SDL_RenderCopy(renderer, texture2, nullptr, nullptr);
+  SDL_RenderCopy(renderer, texture, nullptr, &target);
+  SDL_RenderPresent(renderer);
 
-  while (SDL_PollEvent(&evento)) {
-      if (evento.type == SDL_QUIT) {
-        rodando = false;
-      }
-      // Exemplos de outros eventos.
-      // Que outros eventos poderiamos ter e que sao uteis?
-      //if (evento.type == SDL_KEYDOWN) {
-      //}
-      //if (evento.type == SDL_MOUSEBUTTONDOWN) {
-      //}
-    }
-
-    // Desenhar a cena
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture2, nullptr, nullptr);
-    SDL_RenderCopy(renderer, texture, nullptr, &target);
-    SDL_RenderPresent(renderer);
-
-    // Delay para diminuir o framerate
-    SDL_Delay(10);
+  // Delay para diminuir o framerate
+  SDL_Delay(10);
 }
 
 class Controller
@@ -173,12 +172,23 @@ Controller::Controller(Model &model, View &view) :
 
 void Controller::update() {
 
-model.set_forca(-model.get_posicao()*model.get_k() -model.get_b()*model.get_velocidade());
-model.set_a((model.get_forca())/(model.get_m()));
-model.set_velocidade(model.get_velocidade() +model.get_a()*model.get_dt());
-model.set_posicao(model.get_posicao() +model.get_velocidade()*model.get_dt());
+  // Variaveis para verificar eventos
+  SDL_Event evento; // eventos discretos
+  const Uint8* state = SDL_GetKeyboardState(nullptr); // estado do teclado
 
+  // Polling de eventos
+  SDL_PumpEvents(); // atualiza estado do teclado
+  if (state[SDL_SCANCODE_LEFT]) target.x -= 1;
+  if (state[SDL_SCANCODE_RIGHT]) target.x += 1;
+  if (state[SDL_SCANCODE_UP]) target.y -= 1;
+  if (state[SDL_SCANCODE_DOWN]) target.y += 1;
 
+  model.set_forca(-model.get_posicao()*model.get_k() -model.get_b()*model.get_velocidade());
+  model.set_a((model.get_forca())/(model.get_m()));
+  model.set_velocidade(model.get_velocidade() +model.get_a()*model.get_dt());
+  model.set_posicao(model.get_posicao() +model.get_velocidade()*model.get_dt());
+
+  view.render()
 }
 
 int main() {
@@ -193,37 +203,6 @@ int main() {
     view.render();
   }
   */
-
-
-  // Controlador:
-  bool rodando = true;
-
-  // Variaveis para verificar eventos
-  SDL_Event evento; // eventos discretos
-  const Uint8* state = SDL_GetKeyboardState(nullptr); // estado do teclado
-
-  // Laco principal do jogo
-  while(rodando) {
-    // Polling de eventos
-    SDL_PumpEvents(); // atualiza estado do teclado
-    if (state[SDL_SCANCODE_LEFT]) target.x -= 1;
-    if (state[SDL_SCANCODE_RIGHT]) target.x += 1;
-    if (state[SDL_SCANCODE_UP]) target.y -= 1;
-    if (state[SDL_SCANCODE_DOWN]) target.y += 1;
-
-
-    while (SDL_PollEvent(&evento)) {
-      if (evento.type == SDL_QUIT) {
-        rodando = false;
-      }
-      // Exemplos de outros eventos.
-      // Que outros eventos poderiamos ter e que sao uteis?
-      //if (evento.type == SDL_KEYDOWN) {
-      //}
-      //if (evento.type == SDL_MOUSEBUTTONDOWN) {
-      //}
-    }
-  }
 
   return 0;
 }
