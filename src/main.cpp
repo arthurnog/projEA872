@@ -1,8 +1,24 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <memory>
 
 #include "func.h"
+//#include "View.h"
+//#include "Model.h"
+//#include "Controller.h"
+
+class Model {
+  private:
+    float x_current;
+    float y_current;
+  public:
+    Model()
+    float get_x();
+    float set_x(float new_x);
+    float get_y();
+    float set_y(float new_y);
+}
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
