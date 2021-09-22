@@ -29,12 +29,24 @@ void Model::set_x(float nex_x){this->x_current=new_x;}
 float Model::get_y(){return this->y_current;}
 void Model::set_y(float nex_y){this->y_current=new_y;}
 
+class View{
+  private:
+    Model &mdl;
+    SDL_Renderer* renderer;
+    SDL_Window* window;
+    SDL_Rect target;
+    SDL_Texture *sprite_0;
+    SDL_Texture *background;
+  public:
+    View(Model &model);
+    ~View();
+    void render();
+}
+//view
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-int main() {
-  estou_aqui();
-
+View::View(Model &model) : model(model){
   // Inicializando o subsistema de video do SDL
   if ( SDL_Init (SDL_INIT_VIDEO) < 0 ) {
     std::cout << SDL_GetError();
@@ -42,41 +54,64 @@ int main() {
   }
 
   // Criando uma janela
-  SDL_Window* window = nullptr;
-  window = SDL_CreateWindow("Demonstracao do SDL2",
+  this->window = nullptr;
+  this->window = SDL_CreateWindow("Demonstracao do SDL2",
       SDL_WINDOWPOS_UNDEFINED,
       SDL_WINDOWPOS_UNDEFINED,
       SCREEN_WIDTH,
       SCREEN_HEIGHT,
       SDL_WINDOW_SHOWN);
-  if (window==nullptr) { // Em caso de erro...
+  if (this->window==nullptr) { // Em caso de erro...
     std::cout << SDL_GetError();
     SDL_Quit();
-    return 1;
   }
 
   // Inicializando o renderizador
-  SDL_Renderer* renderer = SDL_CreateRenderer(
-      window, -1,
+  this->renderer = SDL_CreateRenderer(
+      this->window, -1,
       SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-  if (renderer==nullptr) { // Em caso de erro...
-    SDL_DestroyWindow(window);
+  if (this->renderer==nullptr) { // Em caso de erro...
+    SDL_DestroyWindow(this->window);
     std::cout << SDL_GetError();
     SDL_Quit();
-    return 1;
   }
 
   // Carregando texturas
   // personagem
-  SDL_Texture *texture = IMG_LoadTexture(renderer, "../assets/capi.png");
+  this->sprite_0 = IMG_LoadTexture(renderer, "../assets/capi.png");
   // fundo
-  SDL_Texture *texture2 = IMG_LoadTexture(renderer, "../assets/park.jpeg");
+  this->background = IMG_LoadTexture(renderer, "../assets/park.jpeg");
 
   // Quadrado onde a textura sera desenhada
-  SDL_Rect target;
-  target.x = 0;
-  target.y = 0;
-  SDL_QueryTexture(texture, nullptr, nullptr, &target.w, &target.h);
+  this->target.x = model.get_x;
+  this->target.y = model.get_y;
+  SDL_QueryTexture(this->texture, nullptr, nullptr, &(this->target.w), &(this->target.h));
+
+}
+
+View::~View(){
+  SDL_DestroyTexture(texture);
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+
+void View::render(){
+  this->target.x = model.get_x();
+  this->target.y = model.get_y();
+  //desenhar cena
+  SDL_RenderClear(this->renderer);
+  SDL_RenderCopy(this->renderer, this->background, nullptr, nullptr);
+  SDL_RenderCopy(this->renderer, this->sprite_0, nullptr, &(this->target));
+  SDL_RenderPresent(this->renderer);
+  // Delay para diminuir o framerate
+  SDL_Delay(10);
+
+}
+//=============>
+int main() {
+  estou_aqui();
+  //======================>
 
   // Controlador:
   bool rodando = true;
@@ -99,28 +134,8 @@ int main() {
       if (evento.type == SDL_QUIT) {
         rodando = false;
       }
-      // Exemplos de outros eventos.
-      // Que outros eventos poderiamos ter e que sao uteis?
-      //if (evento.type == SDL_KEYDOWN) {
-      //}
-      //if (evento.type == SDL_MOUSEBUTTONDOWN) {
-      //}
+      //view render()
     }
-
-    // Desenhar a cena
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture2, nullptr, nullptr);
-    SDL_RenderCopy(renderer, texture, nullptr, &target);
-    SDL_RenderPresent(renderer);
-
-    // Delay para diminuir o framerate
-    SDL_Delay(10);
   }
-
-  SDL_DestroyTexture(texture);
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(window);
-  SDL_Quit();
-
   return 0;
 }
