@@ -15,10 +15,19 @@ class Model {
   public:
     Model()
     float get_x();
-    float set_x(float new_x);
+    void set_x(float new_x);
     float get_y();
-    float set_y(float new_y);
+    void set_y(float new_y);
 }
+
+Model::Model() {
+  this->x_current = 100;
+  this->y_current = 100;
+}
+float Model::get_x(){return this->x_current;}
+void Model::set_x(float nex_x){this->x_current=new_x;}
+float Model::get_y(){return this->y_current;}
+void Model::set_y(float nex_y){this->y_current=new_y;}
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
