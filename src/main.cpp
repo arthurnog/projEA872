@@ -83,7 +83,7 @@ View::View(Model &model) : model(model){
   // personagem
   this->sprite_0 = IMG_LoadTexture(renderer, "../assets/car.png");
   // fundo
-  this->background = IMG_LoadTexture(renderer, "../assets/park.jpeg");
+  this->background = IMG_LoadTexture(renderer, "../assets/arena.png");
 
   // Quadrado onde a textura sera desenhada
   this->target.x = model.get_x();
