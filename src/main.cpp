@@ -2,6 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 #include <memory>
+#include <math.h>
 
 #include "../include/func.h"
 //#include "View.h"
@@ -10,28 +11,52 @@
 
 class Model {
   private:
-    float x_current;
-    float y_current;
+    float x_current=0;
+    float y_current=0;
+    float angle=0;
+    float speed=0;
+    float maxSpeed=12;
+    float acc=0.2;
+    float dec=0.3;
+    float turnSpeed=0.08;
   public:
     Model();
     ~Model();
-    int get_x();
+    float get_x();
     void set_x(float new_x);
-    int get_y();
+    float get_y();
     void set_y(float new_y);
+    float get_angle();
+    void set_angle(float new_angle);
+    float get_speed();
+    void set_speed(float new_speed);
+    float get_maxSpeed();
+    float get_turnSpeed();
+    float get_acc();
+    float get_dec();
+    
 };
 
 Model::Model() {
-  this->x_current = 100.0;
-  this->y_current = 100.0;
+  this->x_current = 250.0;
+  this->y_current = 250.0;
 }
 
 Model::~Model(){}
 
-int Model::get_x(){return this->x_current;}
+float Model::get_x(){return this->x_current;}
 void Model::set_x(float new_x){this->x_current=new_x;}
-int Model::get_y(){return this->y_current;}
+float Model::get_y(){return this->y_current;}
 void Model::set_y(float new_y){this->y_current=new_y;}
+float Model::get_angle(){return this->angle;;}
+void Model::set_angle(float new_angle){this->angle=new_angle;}
+float Model::get_speed(){return this->speed;}
+void Model::set_speed(float new_speed){this->speed=new_speed;}
+float Model::get_maxSpeed(){return this->maxSpeed;}
+float Model::get_turnSpeed(){return this->turnSpeed;}
+float Model::get_acc(){return this->acc;}
+float Model::get_dec(){return this->dec;}
+
 
 class View{
   private:
@@ -39,12 +64,16 @@ class View{
     SDL_Renderer* renderer;
     SDL_Window* window;
     SDL_Rect target;
+    SDL_Rect rock_1;
     SDL_Texture *sprite_0;
+    SDL_Texture *sprite_1;
     SDL_Texture *background;
+    
   public:
     View(Model &model);
     ~View();
     void render();
+    
 };
 //view
 const int SCREEN_WIDTH = 640;
@@ -84,11 +113,17 @@ View::View(Model &model) : model(model){
   this->sprite_0 = IMG_LoadTexture(renderer, "../assets/car.png");
   // fundo
   this->background = IMG_LoadTexture(renderer, "../assets/arena.png");
+  //pedra
+  this->sprite_1 = IMG_LoadTexture(renderer, "../assets/rock.png");
+
 
   // Quadrado onde a textura sera desenhada
   this->target.x = model.get_x();
   this->target.y = model.get_y();
+  this->rock_1.x= 380;
+  this->rock_1.y=200;
   SDL_QueryTexture(this->sprite_0, nullptr, nullptr, &(this->target.w), &(this->target.h));
+  SDL_QueryTexture(this->sprite_1, nullptr, nullptr, &(this->rock_1.w), &(this->rock_1.h));
 
 }
 
@@ -103,10 +138,13 @@ View::~View(){
 void View::render(){
   this->target.x = model.get_x();
   this->target.y = model.get_y();
+  //this->rock_1.x=380;
+  //this->rock_1.y=190;
   //desenhar cena
   SDL_RenderClear(this->renderer);
   SDL_RenderCopy(this->renderer, this->background, nullptr, nullptr);
-  SDL_RenderCopy(this->renderer, this->sprite_0, nullptr, &(this->target));
+  SDL_RenderCopy(this->renderer, this->sprite_1, nullptr, &(this->rock_1));
+  SDL_RenderCopyEx(this->renderer, this->sprite_0, nullptr, &(this->target), this->model.get_angle()*(180/3.141592), NULL, SDL_FLIP_NONE);
   SDL_RenderPresent(this->renderer);
   // Delay para diminuir o framerate
   SDL_Delay(10);
@@ -137,19 +175,78 @@ bool Controller::get_on(){return this->on;}
 
 void Controller::polling(){
   // Polling de eventos
+  
   SDL_PumpEvents(); // atualiza estado do teclado
+  /*
   if (state[SDL_SCANCODE_LEFT]){
-    this->model.set_x(this->model.get_x() - 1);
+    this->model.set_angle(this->model.get_angle()-0.5);
   }
   if (state[SDL_SCANCODE_RIGHT]){
-    this->model.set_x(this->model.get_x() + 1);
+    this->model.set_angle(this->model.get_angle()+0.5);
   }
   if (state[SDL_SCANCODE_UP]){
-    this->model.set_y(this->model.get_y() - 1);
+    this->model.set_y((this->model.get_y() - 10));
   }
   if (state[SDL_SCANCODE_DOWN]){
-    this->model.set_y(this->model.get_y() + 1);
+    this->model.set_y(this->model.get_y() + 10);
   }
+  */
+  
+  if((state[SDL_SCANCODE_UP]) && (this->model.get_speed())<(this->model.get_maxSpeed()))
+  {
+  if ((this->model.get_speed())<0){this->model.set_speed(this->model.get_speed()+this->model.get_dec());
+  }
+  else {this->model.set_speed(this->model.get_speed()+this->model.get_acc());}
+  
+  }
+  
+  if((state[SDL_SCANCODE_DOWN]) && (this->model.get_speed())>(-1)*(this->model.get_maxSpeed()))
+  {
+  if ((this->model.get_speed())>0){this->model.set_speed(this->model.get_speed()-this->model.get_dec());
+  }
+  else {this->model.set_speed(this->model.get_speed()-this->model.get_acc());}
+  
+  }
+  //----------------------------------
+  if(!(state[SDL_SCANCODE_UP]) && !((state[SDL_SCANCODE_DOWN])))
+  {
+  if((this->model.get_speed()-this->model.get_dec())>0){
+  this->model.set_speed(this->model.get_speed()-this->model.get_dec());
+  }
+  else if((this->model.get_speed()+this->model.get_dec())<0){
+  this->model.set_speed(this->model.get_speed()+this->model.get_dec());
+  }
+  else {this->model.set_speed(0);}
+  
+  }
+  
+  
+//-------------------------------------
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//---------------------------------------
+
+if((state[SDL_SCANCODE_RIGHT])&&(this->model.get_speed() !=0)){
+this->model.set_angle((this->model.get_angle())+((this->model.get_turnSpeed())*((this->model.get_speed())/(this->model.get_maxSpeed()))));
+}
+
+if((state[SDL_SCANCODE_LEFT])&&(this->model.get_speed() !=0)){
+this->model.set_angle((this->model.get_angle())-((this->model.get_turnSpeed())*((this->model.get_speed())/(this->model.get_maxSpeed()))));
+}
+
+this->model.set_x((this->model.get_x())+(sin(this->model.get_angle())*this->model.get_speed()));
+
+this->model.set_y((this->model.get_y())-(cos(this->model.get_angle())*this->model.get_speed()));
+
+if(state[SDL_SCANCODE_R]){
+this->model.set_x(250);
+this->model.set_y(250);
+
+}
+
+
+//---------------------------------------
 
   while (SDL_PollEvent(&(this->event))) {
     if (this->event.type == SDL_QUIT) {
@@ -157,6 +254,13 @@ void Controller::polling(){
     }
   }
 }
+
+//----------------------------------------
+
+
+
+
+//----------------------------------------
 
 int main() {
   Model model = Model();
