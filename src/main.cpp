@@ -245,6 +245,55 @@ this->model.set_y(250);
 
 }
 
+//colisao com as bordas da arena
+if(this->model.get_x()<0)
+{
+this->model.set_x(0);
+}
+if(this->model.get_y()<0)
+{
+this->model.set_y(0);
+}
+if(this->model.get_x()>640)
+{
+this->model.set_x(640);
+}
+if(this->model.get_y()>480)
+{
+this->model.set_y(480);
+}
+
+//lado de cima do bloco (colisao)
+if((this->model.get_y()>=160.5) && (this->model.get_y()<=200) && (this->model.get_x()>=358) && (this->model.get_x()<=402))
+{
+//this->model.set_x();
+this->model.set_y(160.5);
+}
+
+//lado de baixo do bloco (colisao)
+if((this->model.get_y()<=239.5) && (this->model.get_y()>=200) && (this->model.get_x()>=358) && (this->model.get_x()<=402))
+{
+//this->model.set_x();
+this->model.set_y(239.5);
+}
+
+//lateral esquerda do bloco
+if((this->model.get_x()>=340.5) && (this->model.get_x()<=380) && (this->model.get_y()>=178) && (this->model.get_y()<=222))
+{
+//this->model.set_x();
+this->model.set_x(340.5);
+}
+
+//lateral direita do bloco
+if((this->model.get_x()<=419.5) && (this->model.get_x()>=380) && (this->model.get_y()>=178) && (this->model.get_y()<=222))
+{
+//this->model.set_x();
+this->model.set_x(419.5);
+}
+
+
+
+
 
 //---------------------------------------
 
