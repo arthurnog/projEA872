@@ -1,0 +1,4 @@
+/home/kaffa/study/projEA872/Build/CMakeFiles/rebuild_cache.dir
+/home/kaffa/study/projEA872/Build/CMakeFiles/edit_cache.dir
+/home/kaffa/study/projEA872/Build/CMakeFiles/func.dir
+/home/kaffa/study/projEA872/Build/CMakeFiles/MeuJogo.dir
