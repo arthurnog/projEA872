@@ -6,7 +6,7 @@
 
 #include "../include/func.h"
 #include "../include/View.h"
-#include "Model.h"
+#include "../include/Model.h"
 #include "../include/Controller.h"
 
 

@@ -1,8 +1,9 @@
-#include "Model.h"
+#include "../include/Model.h"
+#include "../include/json.hpp"
+#include <fstream>
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <iostream>
 #include <memory>
 #include <math.h>
 using namespace std;
