@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/func.h
+
+/home/kaffa/study/projEA872/src/func.cpp
+func.h
+/home/kaffa/study/projEA872/src/func.h
+iostream
+-
+
