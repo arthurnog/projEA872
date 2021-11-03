@@ -1,5 +1,6 @@
 #pragma once
 using namespace std;
+#include "../include/Caixa.h"
 
 class Model {
   private:
