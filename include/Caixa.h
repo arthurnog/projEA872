@@ -11,6 +11,7 @@ class Caixa {
         ~Caixa();
         float get_x();
         float get_y();
+        void set_pos();
         bool get_took();
         void set_took();
 };
