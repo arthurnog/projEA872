@@ -16,6 +16,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/kaffa/study/projEA872/Build/CMakeFiles/func.dir/DependInfo.cmake"
+  "/home/kaffa/study/projEA872/Build/CMakeFiles/Model.dir/DependInfo.cmake"
+  "/home/kaffa/study/projEA872/Build/CMakeFiles/View.dir/DependInfo.cmake"
+  "/home/kaffa/study/projEA872/Build/CMakeFiles/Controller.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/kaffa/study/projEA872/include/func.h
-
-/home/kaffa/study/projEA872/src/main.cpp
-SDL2/SDL.h
--
-SDL2/SDL_image.h
--
-iostream
--
-memory
--
-math.h
--
-../include/func.h
-/home/kaffa/study/projEA872/include/func.h
-
