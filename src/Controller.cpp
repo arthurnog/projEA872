@@ -7,7 +7,10 @@
 #include <iostream>
 #include <memory>
 #include <math.h>
+#include "../include/json.hpp"
+#include <fstream>
 using namespace std;
+using nlohmann::json;
 
 //---------------------------------------------------------------------
 
@@ -67,6 +70,35 @@ this->model.set_x((box_x+40.5));
 }
 
 
+
+}
+
+
+void Controller::save_memorycard(){
+
+json j;
+j["x_current"]=this->model.get_x();
+j["y_current"]=this->model.get_y();
+j["angle"]=this->model.get_angle();
+j["speed"]=this->model.get_speed();
+
+std::ofstream f2;
+f2.open("data.json");
+f2<<j;
+f2.close();
+
+}
+
+void Controller::load_memorycard(){
+json j2;
+std::ifstream f2;
+f2.open("data.json");
+f2>>j2;
+f2.close();
+this->model.set_x(j2["x_current"]);
+this->model.set_y(j2["y_current"]);
+this->model.set_angle(j2["angle"]);
+this->model.set_speed(j2["speed"]);
 
 }
 
@@ -136,10 +168,12 @@ this->model.set_x((this->model.get_x())+(sin(this->model.get_angle())*this->mode
 
 this->model.set_y((this->model.get_y())-(cos(this->model.get_angle())*this->model.get_speed()));
 
-if(state[SDL_SCANCODE_R]){
-this->model.set_x(250);
-this->model.set_y(250);
-this->model.set_coleta1(0);
+if(state[SDL_SCANCODE_C]){
+save_memorycard();
+}
+
+if(state[SDL_SCANCODE_L]){
+load_memorycard();
 }
 
 //colisao com as bordas da arena
