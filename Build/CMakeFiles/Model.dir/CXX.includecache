@@ -8,9 +8,13 @@
 
 /home/kaffa/study/projEA872/include/Caixa.h
 
+/home/kaffa/study/projEA872/include/Carro.h
+
 /home/kaffa/study/projEA872/include/Model.h
 ../include/Caixa.h
 /home/kaffa/study/projEA872/include/Caixa.h
+../include/Carro.h
+/home/kaffa/study/projEA872/include/Carro.h
 
 /home/kaffa/study/projEA872/include/json.hpp
 algorithm
@@ -341,6 +345,8 @@ vector
 /home/kaffa/study/projEA872/include/Model.h
 ../include/Caixa.h
 /home/kaffa/study/projEA872/include/Caixa.h
+../include/Carro.h
+/home/kaffa/study/projEA872/include/Carro.h
 ../include/json.hpp
 /home/kaffa/study/projEA872/include/json.hpp
 fstream

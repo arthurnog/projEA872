@@ -72,12 +72,16 @@ View::View(Model &model) : model(model){
   this->sprite_9 = IMG_LoadTexture(renderer, "../assets/rock.png");
   //numero 5
   this->sprite_10 = IMG_LoadTexture(renderer, "../assets/5.png");
+
+  this->sprite_11 = IMG_LoadTexture(renderer, "../assets/rock.png");
   
   
   
   // Quadrado onde a textura sera desenhada
   this->target.x = model.get_x();
   this->target.y = model.get_y();
+  this->box.x = model.get_box_x();
+  this->box.y = model.get_box_y();
   this->rock_1.x= 380;
   this->rock_1.y=200;
   this->number_1.x=590;
@@ -99,6 +103,7 @@ View::View(Model &model) : model(model){
   this->rock_5.x= 60;
   this->rock_5.y=380;
   
+  SDL_QueryTexture(this->sprite_11, nullptr, nullptr, &(this->box.w), &(this->box.h));
   SDL_QueryTexture(this->sprite_0, nullptr, nullptr, &(this->target.w), &(this->target.h));
   SDL_QueryTexture(this->sprite_1, nullptr, nullptr, &(this->rock_1.w), &(this->rock_1.h));
   SDL_QueryTexture(this->sprite_2, nullptr, nullptr, &(this->number_1.w), &(this->number_1.h));
@@ -124,9 +129,12 @@ View::~View(){
 }
 
 void View::render(){
+  std::cout << "eestou aaqui" << std::endl;
   this->target.x = model.get_x();
   this->target.y = model.get_y();
- 
+  this->box.x = model.get_box_x();
+  this->box.y = model.get_box_y();
+
   //desenhar cena
   SDL_RenderClear(this->renderer);
   SDL_RenderCopy(this->renderer, this->background, nullptr, nullptr);
@@ -161,7 +169,9 @@ void View::render(){
   SDL_RenderCopy(this->renderer, this->sprite_10, nullptr, &(this->number_5));
   }
   
-  
+  std::cout << this->box.h << std::endl; std::cout << this->box.w << std::endl;
+  std::cout << this->box.x << std::endl; std::cout << this->box.y << std::endl;
+  SDL_RenderCopy(this->renderer, this->sprite_11, nullptr, &(this->box));
   SDL_RenderCopyEx(this->renderer, this->sprite_0, nullptr, &(this->target), this->model.get_angle()*(180/3.141592), NULL, SDL_FLIP_NONE);
   SDL_RenderPresent(this->renderer);
   // Delay para diminuir o framerate

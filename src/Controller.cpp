@@ -14,43 +14,19 @@ using nlohmann::json;
 
 //---------------------------------------------------------------------
 
-void Controller::overlap(float box_x, float box_y, int num)
+void Controller::overlap(float box_x, float box_y)
 {
   // lado de cima do bloco (colisao)
   if ((this->model.get_y() >= (box_y - 40.5)) && (this->model.get_y() <= box_y) && (this->model.get_x() >= (box_x - 22)) && (this->model.get_x() <= (box_x + 22)))
   {
-
-    switch (num)
-    {
-
-    case 1:
-      this->model.set_coleta1(1);
-      break;
-
-    case 2:
-      this->model.set_coleta2(1);
-      break;
-
-    case 3:
-      this->model.set_coleta3(1);
-      break;
-
-    case 4:
-      this->model.set_coleta4(1);
-      break;
-
-    case 5:
-      this->model.set_coleta5(1);
-      break;
-    }
-
     this->model.set_score((this->model.get_score() + 1));
+    this->model.set_box_pos();
   }
 
   // lado de baixo do bloco (colisao)
   if ((this->model.get_y() <= (box_y + 40.5)) && (this->model.get_y() >= box_y) && (this->model.get_x() >= (box_x - 22)) && (this->model.get_x() <= (box_x + 22)))
   {
-
+  }
     // lateral esquerda do bloco
     if ((this->model.get_x() >= (box_x - 40.5)) && (this->model.get_x() <= box_x) && (this->model.get_y() >= (box_y - 22)) && (this->model.get_y() <= (box_y + 22)))
     {
@@ -60,7 +36,7 @@ void Controller::overlap(float box_x, float box_y, int num)
     if ((this->model.get_x() <= (box_x + 40.5)) && (this->model.get_x() >= box_x) && (this->model.get_y() >= (box_y - 22)) && (this->model.get_y() <= (box_y + 22)))
     {
     }
-  }
+}
 
   void Controller::save_memorycard()
   {
@@ -197,12 +173,12 @@ void Controller::overlap(float box_x, float box_y, int num)
     }
 
     //--------------------------------------------------
+    overlap(this->model.get_box_x(), this->model.get_box_y());
+    
     /*
-    if (this->model.)
-    */
     if (this->model.get_coleta1() == 0)
     {
-      overlap(this->model.get_caixa1x(), this->model.get_caixa1y(), 1);
+      overlap(this->model.get_caixa1x(), this->model.get_caixa1y());
     }
 
     if (this->model.get_coleta2() == 0)
@@ -224,6 +200,7 @@ void Controller::overlap(float box_x, float box_y, int num)
     {
       overlap(this->model.get_caixa5x(), this->model.get_caixa5y(), 5);
     }
+    */
 
     //---------------------------------------
 

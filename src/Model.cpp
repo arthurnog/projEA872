@@ -1,5 +1,6 @@
 #include "../include/Model.h"
 #include "../include/Caixa.h"
+#include "../include/Carro.h"
 #include "../include/json.hpp"
 #include <fstream>
 #include <iostream>

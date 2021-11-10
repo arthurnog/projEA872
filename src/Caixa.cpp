@@ -9,8 +9,10 @@
 #include <math.h>
 
 Caixa::Caixa(){
-    this->x = rand() % 540 + 40;
-    this->y = rand() % 380 + 40;
+    //this->x = rand() % 540 + 40;
+    this->x = 50;
+    this->y = 50;
+    //this->y = rand() % 380 + 40;
 }
 
 Caixa::~Caixa(){}

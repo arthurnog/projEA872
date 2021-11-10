@@ -14,6 +14,8 @@ Carro::Carro(){
     this->y_current = rand() % 380 + 40;
 }
 
+Carro::~Carro(){}
+
 float Carro::get_x(){return this->x_current;}
 void Carro::set_x(float new_x){this->x_current=new_x;}
 float Carro::get_y(){return this->y_current;}

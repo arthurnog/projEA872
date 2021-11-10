@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Carro
+
+# Build rule for target.
+Carro: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Carro
+.PHONY : Carro
+
+# fast build rule for target.
+Carro/fast:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/build
+.PHONY : Carro/fast
+
+#=============================================================================
+# Target rules for targets named Caixa
+
+# Build rule for target.
+Caixa: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Caixa
+.PHONY : Caixa
+
+# fast build rule for target.
+Caixa/fast:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/build
+.PHONY : Caixa/fast
+
+#=============================================================================
 # Target rules for targets named Controller
 
 # Build rule for target.
@@ -174,6 +200,60 @@ MeuJogo: cmake_check_build_system
 MeuJogo/fast:
 	$(MAKE) -f CMakeFiles/MeuJogo.dir/build.make CMakeFiles/MeuJogo.dir/build
 .PHONY : MeuJogo/fast
+
+src/Caixa.o: src/Caixa.cpp.o
+
+.PHONY : src/Caixa.o
+
+# target to build an object file
+src/Caixa.cpp.o:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/src/Caixa.cpp.o
+.PHONY : src/Caixa.cpp.o
+
+src/Caixa.i: src/Caixa.cpp.i
+
+.PHONY : src/Caixa.i
+
+# target to preprocess a source file
+src/Caixa.cpp.i:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/src/Caixa.cpp.i
+.PHONY : src/Caixa.cpp.i
+
+src/Caixa.s: src/Caixa.cpp.s
+
+.PHONY : src/Caixa.s
+
+# target to generate assembly for a file
+src/Caixa.cpp.s:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/src/Caixa.cpp.s
+.PHONY : src/Caixa.cpp.s
+
+src/Carro.o: src/Carro.cpp.o
+
+.PHONY : src/Carro.o
+
+# target to build an object file
+src/Carro.cpp.o:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/src/Carro.cpp.o
+.PHONY : src/Carro.cpp.o
+
+src/Carro.i: src/Carro.cpp.i
+
+.PHONY : src/Carro.i
+
+# target to preprocess a source file
+src/Carro.cpp.i:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/src/Carro.cpp.i
+.PHONY : src/Carro.cpp.i
+
+src/Carro.s: src/Carro.cpp.s
+
+.PHONY : src/Carro.s
+
+# target to generate assembly for a file
+src/Carro.cpp.s:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/src/Carro.cpp.s
+.PHONY : src/Carro.cpp.s
 
 src/Controller.o: src/Controller.cpp.o
 
@@ -317,12 +397,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... Carro"
+	@echo "... Caixa"
 	@echo "... edit_cache"
 	@echo "... Controller"
 	@echo "... Model"
 	@echo "... View"
 	@echo "... func"
 	@echo "... MeuJogo"
+	@echo "... src/Caixa.o"
+	@echo "... src/Caixa.i"
+	@echo "... src/Caixa.s"
+	@echo "... src/Carro.o"
+	@echo "... src/Carro.i"
+	@echo "... src/Carro.s"
 	@echo "... src/Controller.o"
 	@echo "... src/Controller.i"
 	@echo "... src/Controller.s"

@@ -15,7 +15,7 @@ class Controller{
     ~Controller();
     void polling();
     bool get_on();
-    void overlap(float box_x, float box_y, int num);
+    void overlap(float box_x, float box_y);
     void save_memorycard();
     void load_memorycard();
 };

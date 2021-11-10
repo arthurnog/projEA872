@@ -45,6 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/Carro.dir/DependInfo.cmake"
+  "CMakeFiles/Caixa.dir/DependInfo.cmake"
   "CMakeFiles/Controller.dir/DependInfo.cmake"
   "CMakeFiles/Model.dir/DependInfo.cmake"
   "CMakeFiles/View.dir/DependInfo.cmake"

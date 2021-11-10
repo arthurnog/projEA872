@@ -83,6 +83,8 @@ MeuJogo: libfunc.a
 MeuJogo: libModel.a
 MeuJogo: libView.a
 MeuJogo: libController.a
+MeuJogo: libCarro.a
+MeuJogo: libCaixa.a
 MeuJogo: CMakeFiles/MeuJogo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MeuJogo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeuJogo.dir/link.txt --verbose=$(VERBOSE)

@@ -16,6 +16,7 @@ class View{
      SDL_Rect rock_3;
     SDL_Rect rock_4;
     SDL_Rect rock_5;
+    SDL_Rect box;
     SDL_Rect number_1;
     SDL_Rect number_2;
     SDL_Rect number_3;

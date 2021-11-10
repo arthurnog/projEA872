@@ -8,9 +8,13 @@
 
 /home/kaffa/study/projEA872/include/Caixa.h
 
+/home/kaffa/study/projEA872/include/Carro.h
+
 /home/kaffa/study/projEA872/include/Model.h
 ../include/Caixa.h
 /home/kaffa/study/projEA872/include/Caixa.h
+../include/Carro.h
+/home/kaffa/study/projEA872/include/Carro.h
 
 /home/kaffa/study/projEA872/include/View.h
 SDL2/SDL.h

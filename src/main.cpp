@@ -17,6 +17,7 @@ int main() {
   Controller controller = Controller(model);
 
   while(controller.get_on()) {
+    std::cout << "oi" << std::endl;
     controller.polling();
     view.render();
   }

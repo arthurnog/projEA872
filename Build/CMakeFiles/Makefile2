@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = /home/kaffa/study/projEA872/Build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/Carro.dir/all
+all: CMakeFiles/Caixa.dir/all
 all: CMakeFiles/Controller.dir/all
 all: CMakeFiles/Model.dir/all
 all: CMakeFiles/View.dir/all
@@ -67,6 +69,8 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/Carro.dir/clean
+clean: CMakeFiles/Caixa.dir/clean
 clean: CMakeFiles/Controller.dir/clean
 clean: CMakeFiles/Model.dir/clean
 clean: CMakeFiles/View.dir/clean
@@ -76,13 +80,67 @@ clean: CMakeFiles/MeuJogo.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/Carro.dir
+
+# All Build rule for target.
+CMakeFiles/Carro.dir/all:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/depend
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=3,4 "Built target Carro"
+.PHONY : CMakeFiles/Carro.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Carro.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Carro.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 0
+.PHONY : CMakeFiles/Carro.dir/rule
+
+# Convenience name for target.
+Carro: CMakeFiles/Carro.dir/rule
+
+.PHONY : Carro
+
+# clean rule for target.
+CMakeFiles/Carro.dir/clean:
+	$(MAKE) -f CMakeFiles/Carro.dir/build.make CMakeFiles/Carro.dir/clean
+.PHONY : CMakeFiles/Carro.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Caixa.dir
+
+# All Build rule for target.
+CMakeFiles/Caixa.dir/all:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/depend
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=1,2 "Built target Caixa"
+.PHONY : CMakeFiles/Caixa.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Caixa.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Caixa.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 0
+.PHONY : CMakeFiles/Caixa.dir/rule
+
+# Convenience name for target.
+Caixa: CMakeFiles/Caixa.dir/rule
+
+.PHONY : Caixa
+
+# clean rule for target.
+CMakeFiles/Caixa.dir/clean:
+	$(MAKE) -f CMakeFiles/Caixa.dir/build.make CMakeFiles/Caixa.dir/clean
+.PHONY : CMakeFiles/Caixa.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/Controller.dir
 
 # All Build rule for target.
 CMakeFiles/Controller.dir/all:
 	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/depend
 	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=1,2 "Built target Controller"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=5,6 "Built target Controller"
 .PHONY : CMakeFiles/Controller.dir/all
 
 # Build rule for subdir invocation for target.
@@ -109,7 +167,7 @@ CMakeFiles/Controller.dir/clean:
 CMakeFiles/Model.dir/all:
 	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/depend
 	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=5,6 "Built target Model"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=9,10 "Built target Model"
 .PHONY : CMakeFiles/Model.dir/all
 
 # Build rule for subdir invocation for target.
@@ -136,7 +194,7 @@ CMakeFiles/Model.dir/clean:
 CMakeFiles/View.dir/all:
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/depend
 	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=7,8 "Built target View"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=11,12 "Built target View"
 .PHONY : CMakeFiles/View.dir/all
 
 # Build rule for subdir invocation for target.
@@ -163,7 +221,7 @@ CMakeFiles/View.dir/clean:
 CMakeFiles/func.dir/all:
 	$(MAKE) -f CMakeFiles/func.dir/build.make CMakeFiles/func.dir/depend
 	$(MAKE) -f CMakeFiles/func.dir/build.make CMakeFiles/func.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=9,10 "Built target func"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=13,14 "Built target func"
 .PHONY : CMakeFiles/func.dir/all
 
 # Build rule for subdir invocation for target.
@@ -187,18 +245,20 @@ CMakeFiles/func.dir/clean:
 # Target rules for target CMakeFiles/MeuJogo.dir
 
 # All Build rule for target.
+CMakeFiles/MeuJogo.dir/all: CMakeFiles/Carro.dir/all
+CMakeFiles/MeuJogo.dir/all: CMakeFiles/Caixa.dir/all
 CMakeFiles/MeuJogo.dir/all: CMakeFiles/Controller.dir/all
 CMakeFiles/MeuJogo.dir/all: CMakeFiles/Model.dir/all
 CMakeFiles/MeuJogo.dir/all: CMakeFiles/View.dir/all
 CMakeFiles/MeuJogo.dir/all: CMakeFiles/func.dir/all
 	$(MAKE) -f CMakeFiles/MeuJogo.dir/build.make CMakeFiles/MeuJogo.dir/depend
 	$(MAKE) -f CMakeFiles/MeuJogo.dir/build.make CMakeFiles/MeuJogo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=3,4 "Built target MeuJogo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kaffa/study/projEA872/Build/CMakeFiles --progress-num=7,8 "Built target MeuJogo"
 .PHONY : CMakeFiles/MeuJogo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MeuJogo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 14
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MeuJogo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaffa/study/projEA872/Build/CMakeFiles 0
 .PHONY : CMakeFiles/MeuJogo.dir/rule

@@ -15,11 +15,15 @@ add_library(func src/func.cpp)
 add_library(Model src/Model.cpp)
 add_library(View src/View.cpp)
 add_library(Controller src/Controller.cpp)
+add_library(Caixa src/Caixa.cpp)
+add_library(Carro src/Carro.cpp)
 
 target_link_libraries(MeuJogo func)
 target_link_libraries(MeuJogo Model)
 target_link_libraries(MeuJogo View)
 target_link_libraries(MeuJogo Controller)
+target_link_libraries(MeuJogo Carro)
+target_link_libraries(MeuJogo Caixa)
 
 
 # Garantir que usaremos C++11 (ou superior, se preciso)

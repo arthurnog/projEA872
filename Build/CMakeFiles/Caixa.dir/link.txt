@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCaixa.a  CMakeFiles/Caixa.dir/src/Caixa.cpp.o
+/usr/bin/ranlib libCaixa.a
