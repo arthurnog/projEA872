@@ -1,6 +1,7 @@
 #pragma once
 using namespace std;
 #include "../include/Caixa.h"
+#include "../include/Carro.h"
 
 class Model {
   private:
@@ -13,6 +14,7 @@ class Model {
     float dec=0.3;
     float turnSpeed=0.08;
     Caixa caixa;
+    Carro carro;
     float caixa1x= 380;
     float caixa1y= 200;
     int coleta1=0;
