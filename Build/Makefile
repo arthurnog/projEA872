@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Controller
+
+# Build rule for target.
+Controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Controller
+.PHONY : Controller
+
+# fast build rule for target.
+Controller/fast:
+	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/build
+.PHONY : Controller/fast
+
+#=============================================================================
+# Target rules for targets named Model
+
+# Build rule for target.
+Model: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Model
+.PHONY : Model
+
+# fast build rule for target.
+Model/fast:
+	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/build
+.PHONY : Model/fast
+
+#=============================================================================
+# Target rules for targets named View
+
+# Build rule for target.
+View: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 View
+.PHONY : View
+
+# fast build rule for target.
+View/fast:
+	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/build
+.PHONY : View/fast
+
+#=============================================================================
 # Target rules for targets named func
 
 # Build rule for target.
@@ -135,6 +174,87 @@ MeuJogo: cmake_check_build_system
 MeuJogo/fast:
 	$(MAKE) -f CMakeFiles/MeuJogo.dir/build.make CMakeFiles/MeuJogo.dir/build
 .PHONY : MeuJogo/fast
+
+src/Controller.o: src/Controller.cpp.o
+
+.PHONY : src/Controller.o
+
+# target to build an object file
+src/Controller.cpp.o:
+	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.o
+.PHONY : src/Controller.cpp.o
+
+src/Controller.i: src/Controller.cpp.i
+
+.PHONY : src/Controller.i
+
+# target to preprocess a source file
+src/Controller.cpp.i:
+	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.i
+.PHONY : src/Controller.cpp.i
+
+src/Controller.s: src/Controller.cpp.s
+
+.PHONY : src/Controller.s
+
+# target to generate assembly for a file
+src/Controller.cpp.s:
+	$(MAKE) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/Controller.cpp.s
+.PHONY : src/Controller.cpp.s
+
+src/Model.o: src/Model.cpp.o
+
+.PHONY : src/Model.o
+
+# target to build an object file
+src/Model.cpp.o:
+	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.o
+.PHONY : src/Model.cpp.o
+
+src/Model.i: src/Model.cpp.i
+
+.PHONY : src/Model.i
+
+# target to preprocess a source file
+src/Model.cpp.i:
+	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.i
+.PHONY : src/Model.cpp.i
+
+src/Model.s: src/Model.cpp.s
+
+.PHONY : src/Model.s
+
+# target to generate assembly for a file
+src/Model.cpp.s:
+	$(MAKE) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/src/Model.cpp.s
+.PHONY : src/Model.cpp.s
+
+src/View.o: src/View.cpp.o
+
+.PHONY : src/View.o
+
+# target to build an object file
+src/View.cpp.o:
+	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/src/View.cpp.o
+.PHONY : src/View.cpp.o
+
+src/View.i: src/View.cpp.i
+
+.PHONY : src/View.i
+
+# target to preprocess a source file
+src/View.cpp.i:
+	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/src/View.cpp.i
+.PHONY : src/View.cpp.i
+
+src/View.s: src/View.cpp.s
+
+.PHONY : src/View.s
+
+# target to generate assembly for a file
+src/View.cpp.s:
+	$(MAKE) -f CMakeFiles/View.dir/build.make CMakeFiles/View.dir/src/View.cpp.s
+.PHONY : src/View.cpp.s
 
 src/func.o: src/func.cpp.o
 
@@ -198,8 +318,20 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Controller"
+	@echo "... Model"
+	@echo "... View"
 	@echo "... func"
 	@echo "... MeuJogo"
+	@echo "... src/Controller.o"
+	@echo "... src/Controller.i"
+	@echo "... src/Controller.s"
+	@echo "... src/Model.o"
+	@echo "... src/Model.i"
+	@echo "... src/Model.s"
+	@echo "... src/View.o"
+	@echo "... src/View.i"
+	@echo "... src/View.s"
 	@echo "... src/func.o"
 	@echo "... src/func.i"
 	@echo "... src/func.s"

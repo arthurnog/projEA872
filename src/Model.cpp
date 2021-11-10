@@ -1,4 +1,5 @@
 #include "../include/Model.h"
+#include "../include/Caixa.h"
 #include "../include/json.hpp"
 #include <fstream>
 #include <iostream>
@@ -27,6 +28,9 @@ float Model::get_maxSpeed(){return this->maxSpeed;}
 float Model::get_turnSpeed(){return this->turnSpeed;}
 float Model::get_acc(){return this->acc;}
 float Model::get_dec(){return this->dec;}
+float Model::get_box_x(){return this->caixa.get_x();}
+float Model::get_box_y(){return this->caixa.get_y();}
+void Model::set_box_pos(){this->caixa.set_pos();}
 float Model::get_caixa1x(){return this->caixa1x;}
 float Model::get_caixa1y(){return this->caixa1y;}
 float Model::get_caixa2x(){return this->caixa2x;}

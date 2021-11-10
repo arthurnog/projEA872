@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kaffa/study/projEA872/src/main.cpp" "/home/kaffa/study/projEA872/Build/CMakeFiles/MeuJogo.dir/src/main.cpp.o"
+  "/home/kaffa/study/projEA872/src/Controller.cpp" "/home/kaffa/study/projEA872/Build/CMakeFiles/Controller.dir/src/Controller.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,10 +15,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/kaffa/study/projEA872/Build/CMakeFiles/func.dir/DependInfo.cmake"
-  "/home/kaffa/study/projEA872/Build/CMakeFiles/Model.dir/DependInfo.cmake"
-  "/home/kaffa/study/projEA872/Build/CMakeFiles/View.dir/DependInfo.cmake"
-  "/home/kaffa/study/projEA872/Build/CMakeFiles/Controller.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
