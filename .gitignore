@@ -1,5 +1,7 @@
 # exclude everything
 Build/*
+monitor/Build/*
 
 # exception to the rule
 !Build/.gitkeep 
+!monitor/Build/.gitkeep 
